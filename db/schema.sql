@@ -1,4 +1,3 @@
-/* EXAMPLE NAME */
-DROP DATABASE IF EXISTS database_db;
+DROP DATABASE IF EXISTS menu_db;
 
-CREATE DATABASE database_db;
+CREATE DATABASE menu_db;
