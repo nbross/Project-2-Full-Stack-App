@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Menu.findAll()
-    .then(dbMenuData => res.json(dbRMenuData))
+    .then(dbMenuData => res.json(dbMenuData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -42,7 +42,7 @@ router.delete('/:id', withAuth, (req, res) => {
     .catch(err => {
         coneol.log(err);
         res.status(500).json(err);
-    };)
+    });
 });
 
 module.exports = router;
