@@ -52,7 +52,8 @@ router.post('/', withAuth, (req, res) => {
     }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth,  (req, res) => {
+   if(req.session) {
     Menu.update(
         {
             menu_text: req.body.menu_text,
@@ -73,8 +74,10 @@ router.put('/:id', (req, res) => {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+   }
+});
+
 
 router.delete('/:id', withAuth, (req, res) => {
     Menu.destroy({
