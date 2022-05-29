@@ -12,6 +12,32 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    Menu.findOne({
+        where: {
+            id: req.params.id
+        }, 
+        attributes: [ 'id', 'menu', 'starting_date', 'ending_date' ],
+        include: [
+            {
+                model: Recipe, 
+                attributes: ['recipe']
+            }
+        ]
+    })
+    .then(dbMenuData => {
+        if (!dbMenuData) {
+            res.status(404).json({ message: 'No menu found with this id'});
+            return;
+        }
+        res.json(dbMenuData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 router.post('/', withAuth, (req, res) => {
     if (req.session) {
         Menu.create({
@@ -25,6 +51,30 @@ router.post('/', withAuth, (req, res) => {
         });
     }
 });
+
+router.put('/:id', (req, res) => {
+    Menu.update(
+        {
+            menu_text: req.body.menu_text,
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbMenuData => {
+        if(dbMenuData) {
+            res.status(404).json({ message: 'No menu found with this id'});
+            return;
+        }
+        res.json(dbMenuData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
 
 router.delete('/:id', withAuth, (req, res) => {
     Menu.destroy({
