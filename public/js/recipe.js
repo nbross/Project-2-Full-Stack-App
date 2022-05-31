@@ -1,7 +1,7 @@
 async function recipeFormHandler(event) {
     event.preventDefault();
 
-    const recipe_text = document.querySelector('textarea[name="recipe-body"]').ariaValueMax.trim();
+    const recipe_text = document.querySelector('textarea[name="recipe-body"]').value.trim();
 
     const recipe_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -18,7 +18,7 @@ async function recipeFormHandler(event) {
             }
         });
         if(response.ok) {
-            document.location.reload();
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }
