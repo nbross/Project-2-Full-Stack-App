@@ -10,4 +10,8 @@ Recipe.belongsTo(Menu, {
   foreignKey: 'menu_id',
 });
 
+Recipe.hasOne(User, {
+  foreignKey: 'user_id'
+});
+
 module.exports = { User, Menu, Recipe };
