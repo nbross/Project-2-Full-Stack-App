@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Recipe extends Model {}
@@ -10,28 +9,37 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-    recipe_name: {
+    recipe: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     filename: {
       type: DataTypes.STRING,
-      allowNull: true,
-      unique: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1]
+    },
+    menu_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'menu',
+        key: 'id',
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'recipe',
