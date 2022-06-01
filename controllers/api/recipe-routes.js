@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'recipe', 'filename', 'description']
+        attributes: ['id', 'recipe_name', 'filename', 'description']
     })
     .then(dbRecipeData => {
         if(!dbRecipeData) {
