@@ -1,0 +1,19 @@
+{{> menu-info menu}}
+
+{{#if loggedIn}}
+<form class="recipe-form">
+    <div>
+    <textarea name="recipe-body"></textarea>
+    </div>
+    
+    <div>
+        <button type="submit">Add Recipe</button>
+    </div>
+</form>
+{{/if}}
+
+{{> recipe-info post.recipes}}
+
+{{#if loggedIn}}
+<script src="/javascript/recipe.js"></script>
+{{/if}}
