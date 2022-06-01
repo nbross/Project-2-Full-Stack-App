@@ -18,7 +18,7 @@ async function recipeFormHandler(event) {
             }
         });
         if(response.ok) {
-            document.location.replace('/dashboard');
+            document.location.reload();
         } else {
             alert(response.statusText);
         }
