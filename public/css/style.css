@@ -1,9 +1,9 @@
 :root {
-    --primary: #3d5852;
-    --secondary: #86938f;
-    --tertiary: #5e877f;
-    --quatrinary: #6c6b67;
-    --light: #e3e4e3;
+    --primary: #25c4cf;
+    --secondary: #1d80dd;
+    --tertiary: #7bc4b5;
+    --quatrinary: #96948f;
+    --light: #000000;
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
@@ -17,6 +17,9 @@
     min-height: 100vh;
     justify-content: flex-start;
     background-color: var(--quatrinary);
+    border-width: 10px;
+    border-style: groove;
+    border-color: wheat;
   }
   
   a {
@@ -30,7 +33,7 @@
   
   header {
     padding: 40px;
-    text-align: center;
+    text-align: right;
     background: var(--primary);
     color: var(--light);
   }
@@ -47,11 +50,18 @@
     padding: 80px;
     text-align: left;
     color: var(--light);
+    border-width: 10px;
+    border-style: inset;
+    border-color: lavender;
   }
   
   nav {
     display: flex;
     background-color: var(--secondary);
+    border-width: 15px;
+    padding: 6px;
+    border-style: ridge;
+    border-color:lightgrey
   }
   
   nav a {
