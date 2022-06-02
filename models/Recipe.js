@@ -11,7 +11,7 @@ Recipe.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    recipe: {
+    recipe_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -36,7 +36,7 @@ Recipe.init(
         model: 'user',
         key: 'id',
       },
-    },
+    }
   },
   {
     sequelize,
