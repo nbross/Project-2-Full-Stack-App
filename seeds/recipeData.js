@@ -44,7 +44,46 @@ const recipeData = [
         description: "House made dough topped with bbq sauce, mozzarella, chicken, red onions and cilantro",
     },
     {
-        
+        id: 8,
+        recipe: "Spice Sausage Pizza",
+        filename: "08-spicy-pizza.jpg",
+        description: "House made dough topped with marinara sauce, spicy sausage, onion, sweet peppers, mozzarella cheese, chili oil and crushed red pepper",
+    },
+    {
+        id: 9, 
+        recipe: 'Baked Ziti',
+        filename: "09-baked-ziti.jpg",
+        description: "Ziti mixed with onions, pancetta, garlic, tomato sauce and a creamy Parmesan bechamel sauce.",
+    },
+    {
+        id: 10, 
+        recipe: "Spicy Crab Pasta",
+        filename: "10-spicy-pasta.jpg",
+        description: "Spaghetti topped with onions, Fresno chile peppers, garlic, crabmeat, and parsley topped with a white wine sauce with mint, dill and lemon zest.",
+    },
+    {
+       id: 11,
+       recipe: "Cacio e Pepe",
+       filename: "11-cacio-pepe.jpg",
+       description: "Spaghetti tossed with butter, olive oil and Parmesan cheese.", 
+    },
+    {
+        id: 12,
+        recipe: "Dutch Apple Pie",
+        filename: "12-dutch-apple-pie.jpg",
+        description: "A mix of granny smith, golden delicious and mcintosh apples baked in out homemade pie crust and topped with butter crumb topping.",
+    },
+    {
+        id: 13, 
+        recipe: "Lemon Chiffon Pie",
+        filename: "13-lemon-chiffon.jpg",
+        description: "Creamy pie with a soft lemon flavor in our homemade pie crust topped with whipped cream.",
+    },
+    {
+     id: 14, 
+     recipe: "Chocolate Cream Pie",
+     filename: "14-chocolate-cream-pie.jpg",
+     description: "A rich chocolate pie in an oreo crust topped with whipped cream and chocolate curls."   
     }
 
 
