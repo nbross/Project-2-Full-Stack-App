@@ -1,4 +1,4 @@
-const { Recipe } = require('../models/');
+const { Recipe } = require('../models');
 
 const recipeData = [
     {
@@ -30,6 +30,21 @@ const recipeData = [
         recipe: "Supergood Salmon Salad",
         filename:"05-salmon-salad.jpg",
         description: "Fresh spring greens topped with avocado, sweet potato croutons, pepitas, pickled red onions, feta, and wild caught salmon topeed with a lemon vinagrette, avocado oil, salt and pepper.",
+    }, 
+    {
+        id: 6,
+        recipe: "Pizza Bianca",
+        filename: "06-pizza-bianca.jpg",
+        description: "House made dough topped with extra virgin olive oil, fresh mozzarella cheese, ricotta cheese, fresh basil pesto, and dried oregano",
+    }, 
+    {
+        id: 7,
+        recipe: "BBQ Chicken Pizza",
+        filename: "07-bbq-chicken-pizza.jpg",
+        description: "House made dough topped with bbq sauce, mozzarella, chicken, red onions and cilantro",
+    },
+    {
+        
     }
 
 
