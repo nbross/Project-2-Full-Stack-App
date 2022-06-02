@@ -23,20 +23,6 @@ Recipe.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    menu_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'menu',
-        key: 'id',
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    }
   },
   {
     sequelize,
