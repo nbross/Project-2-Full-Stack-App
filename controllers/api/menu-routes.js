@@ -17,11 +17,19 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         }, 
-        attributes: [ 'id', 'menu', 'starting_date', 'ending_date' ],
+        attributes: [ 'id', 'menu', 'starting_date', 'ending_date'],
         include: [
             {
                 model: Recipe, 
-                attributes: ['recipe']
+                attributes: ['id', 'recipe', 'filename', 'description', 'created_at', 'user_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
             }
         ]
     })

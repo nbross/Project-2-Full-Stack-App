@@ -1,9 +1,32 @@
 const router = require('express').Router();
-const { Recipe } = require('../../models');
+const sequelize = require('../../config/connection');
+const { Recipe, Menu, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    Recipe.findAll()
+    Recipe.findAll({
+        attributes: [
+            'id',
+            'recipe',
+            'filename',
+            'decription',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Menu,
+                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'user_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
         .then(dbRecipeData => res.json(dbRecipeData))
         .catch(err => {
             console.log(err);
@@ -16,7 +39,21 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'recipe', 'filename', 'description']
+        attributes: ['id', 'recipe', 'filename', 'description', 'created_at'],
+        include: [
+            {
+                model: Menu,
+                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'uesr_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User, 
+                attributes: ['username']
+            }
+        ]
     })
     .then(dbRecipeData => {
         if(!dbRecipeData) {
@@ -32,12 +69,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
+   
     if (req.session) {
         Recipe.create({
-            comment_text: req.body.comment_text,
+            recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
-            menu_id: req.body.post_id
+            menu_id: req.body.menu_id
         })
             .then(dbRecipeData => res.json(dbRecipeData))
             .catch(err => {
@@ -51,7 +88,7 @@ router.put('/:id', withAuth, (req, res) => {
     if(req.session) {
         Recipe.update(
             {
-                comment_text: req.body.comment_text
+               receipe_text: req.body.recipe_text
             }, 
             {
                 where: {

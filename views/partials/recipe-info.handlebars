@@ -1,8 +1,14 @@
-<section class="card">
-    <header>{{recipe}}</header>
-
-    <div class="card-body">
-        <img src="/images/{{filename}}" alt="{{description}}">
-        <p>By: {{username}}</p>
-    </div>
-</section>
+<div class="recipes">
+    {{#each this}}
+    <section class="recipe">
+        <div class="meta">
+            {{recipe.recipe}} on {{format_dat created_at}}
+        </div>
+        <div class="text">
+            {{recipe.description}} 
+            <img src="/images/{{filename}}" alt="{{description}}">
+            <p>By: {{user}}</p>
+        </div>
+    </section>
+    {{/each}}
+</div>
