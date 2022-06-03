@@ -1,9 +1,9 @@
 :root {
-    --primary: #25c4cf;
-    --secondary: #1d80dd;
+    --babyblue: #25c4cf;
+    --navbar: #1d80dd;
     --tertiary: #7bc4b5;
     --quatrinary: #96948f;
-    --light: #000000;
+    --text: #000000;
     --dark: #182c23;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
@@ -34,32 +34,37 @@
   header {
     padding: 40px;
     text-align: right;
-    background: var(--primary);
-    color: var(--light);
+    background: var(--babyblue);
+    color: var(--text);
   }
   
   main {
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
+    margin-bottom: 0px;
   }
   
   aside {
-    flex: 0;
+    flex: auto;
+    flex-wrap: wrap;
     background-color: var(--tertiary);
     padding: 80px;
-    text-align: left;
-    color: var(--light);
+    text-align: center;
+    color: var(--text);
     border-width: 10px;
     border-style: inset;
     border-color: lavender;
+    margin: 0px 78% 0px 0px;
+    position: relative;
+    float: left;
+    height: 100%;
   }
   
   nav {
     display: flex;
-    background-color: var(--secondary);
+    background-color: var(--navbar);
     border-width: 15px;
-    padding: 6px;
+    padding: 15px;
     border-style: ridge;
     border-color:lightgrey
   }
@@ -74,6 +79,7 @@
   nav a:hover {
     color: var(--secondary);
     background-color: var(--dark);
+    border-radius: 7rem;
   }
   
   .gallery {
