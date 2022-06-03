@@ -17,18 +17,11 @@ Menu.init(
     },
     starting_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     ending_date: {
       type: DataTypes.DATE,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+      allowNull: true,
     },
   },
   {
