@@ -1,6 +1,10 @@
 const { Menu } = require('../models');
 
 const menudata = [
+    {
+        menu: 'menu',
+        user_id: 1
+    },
 
 ];
 

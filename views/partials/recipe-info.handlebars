@@ -1,12 +1,8 @@
-<div class="recipes">
-    {{#each this}}
-    <section class="recipe">
-        <div class="meta">
-            {{user.username}} on {{format_date created_at}}
-        </div>
-        <div class="text">
-            {{recipe_text}}
-        </div>
-    </section>
-    {{/each}}
-</div>
+<section class="card">
+    <header>{{recipe}}</header>
+
+    <div class="card-body">
+        <img src="/images/{{filename}}" alt="{{description}}">
+        <p>By: {{username}}</p>
+    </div>
+</section>

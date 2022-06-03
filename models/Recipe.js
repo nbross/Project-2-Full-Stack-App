@@ -13,29 +13,15 @@ Recipe.init(
     },
     recipe: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     filename: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    menu_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'menu',
-        key: 'id',
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+      allowNull: true,
     },
   },
   {

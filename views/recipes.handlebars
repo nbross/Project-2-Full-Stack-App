@@ -1,19 +1,7 @@
-{{> menu-info menu}}
-
-{{#if loggedIn}}
-<form class="recipe-form">
-    <div>
-    <textarea name="recipe-body"></textarea>
+<section class="recipes">
+    <img src="/images/{{recipe.filename}}" alt="{{recipe.description}}">
+    <div class="recipe-info">
+        <h3>{{recipe.recipe}}</h3>
+        <p> By: {{recipe.username}}</p>
     </div>
-    
-    <div>
-        <button type="submit">Add Recipe</button>
-    </div>
-</form>
-{{/if}}
-
-{{> recipe-info post.recipes}}
-
-{{#if loggedIn}}
-<script src="/javascript/recipe.js"></script>
-{{/if}}
+    </section>
