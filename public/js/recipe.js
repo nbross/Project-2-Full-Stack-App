@@ -25,4 +25,4 @@ async function recipeFormHandler(event) {
     }
 }
 
-document.querySelector('.recipe-form').addEventListener('submut', recipeFormHandler);
+document.querySelector('.recipe-form').addEventListener('submit', recipeFormHandler);

@@ -2,7 +2,7 @@ async function newRecipeHandler(event) {
     event.preventDefault();
 
     const recipe_title = document.querySelector('input[name="recipe-title"]').valuex.trim();
-    const recipe_text = document.querySelector('input[name="recipe-text"]').value.trim()
+    const recipe_text = document.querySelector('input[name="recipe-text"]').value.trim();
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',

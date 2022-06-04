@@ -2,9 +2,9 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Recipe, User, Menu } = require('../models');
 
+
 router.get('/', (req, res) => {
-    console.log('====================');
-    Menu.findAll({
+     Menu.findAll({
         attributes: [
             'id',
             'menu',
@@ -26,17 +26,19 @@ router.get('/', (req, res) => {
                 attributes: ['username']
             }
         ]
-    })
-        .then(dbPostData => {
-            const menus = dbPostData.map(post => post.get({ plain: true }));
+    }) 
+    .then(dbMenuData => {
+        const menus = dbMenuData.map((menu) => menu.get({ plain: true }));
 
-            res.render('homepage', { menus });
+            res.render('homepage', { 
+                menus, 
+                loggedIn: req.session.loggedIn, });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+    });
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
