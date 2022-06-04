@@ -26,10 +26,6 @@ Recipe.findAll({
             'starting_date',
             'ending_date',
         ],
-        include: {
-            model: User,
-            atrributes: ['username']
-        }
         },
         {
         model: User,
@@ -67,10 +63,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'starting_date',
             'ending_date',
         ],
-        include: {
-            model: User,
-            atrributes: ['username']
-        }
         },
         {
         model: User,
