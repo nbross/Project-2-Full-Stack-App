@@ -26,7 +26,7 @@ const recipeData = [
         menu_id: 1,
     },
     {
-        recipe: "Supergood Salmon Salad",
+        recipe: "Superfood Salmon Salad",
         filename:"05-salmon-salad.jpg",
         description: "Fresh spring greens topped with avocado, sweet potato croutons, pepitas, pickled red onions, feta, and wild caught salmon topeed with a lemon vinagrette, avocado oil, salt and pepper.",
         menu_id: 1,
@@ -44,7 +44,7 @@ const recipeData = [
         menu_id: 1,
     },
     {
-        recipe: "Spice Sausage Pizza",
+        recipe: "Spicy Sausage Pizza",
         filename: "08-spicy-pizza.jpg",
         description: "House made dough topped with marinara sauce, spicy sausage, onion, sweet peppers, mozzarella cheese, chili oil and crushed red pepper",
         menu_id: 1,
