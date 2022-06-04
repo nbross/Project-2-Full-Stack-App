@@ -4,7 +4,24 @@ const { Menu, User, Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    Menu.findAll()
+    Menu.findAll({  
+        attributes: [
+            'id',
+            'menu',
+            'starting_date',
+            'ending_date',
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Recipe,
+                attributes: ['id', 'recipe', 'description', 'filename', 'created_at']
+            }
+        ]
+    })
     .then(dbMenuData => res.json(dbMenuData))
     .catch(err => {
         console.log(err);
@@ -17,11 +34,19 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         }, 
-        attributes: [ 'id', 'menu', 'starting_date', 'ending_date' ],
+        attributes: [ 'id', 'menu', 'starting_date', 'ending_date'],
         include: [
             {
                 model: Recipe, 
-                attributes: ['recipe']
+                attributes: ['id', 'recipe', 'filename', 'description', 'created_at', 'user_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
             }
         ]
     })
@@ -53,10 +78,9 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth,  (req, res) => {
-   if(req.session) {
     Menu.update(
         {
-            menu_text: req.body.menu_text,
+            menu: req.body.menu,
         },
         {
             where: {
@@ -76,7 +100,7 @@ router.put('/:id', withAuth,  (req, res) => {
         res.status(500).json(err);
     });
    }
-});
+);
 
 
 router.delete('/:id', withAuth, (req, res) => {

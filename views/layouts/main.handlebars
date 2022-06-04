@@ -12,15 +12,15 @@
 
 <body>
   <header>
-    <h1>Welcome to Made to Make</h1>
+    <h1>
+      Welcome to Made to Make
+    </h1>  
   </header>
   <nav>
-    <a href="/">Home</a>
-    <!-- If the user is logged in, show a logout button -->
     {{#if loggedIn}}
+    <a href="/dashboard">DashBoard</a>
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
-    <!-- Otherwise, show a link to login -->
     <a href="/login">Login</a>
     {{/if}}
   </nav>

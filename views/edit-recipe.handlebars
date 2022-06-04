@@ -1,17 +1,19 @@
-<article>
+<div class="row justify-space-between-md">
+    <div class="login-card">
+        <h2 class="page-title">Edit Recipe</h2>
     <a href="/dashboard"> &larr; Back to Dashboard</a>
-    <h2>
-        Edit Recipe
-    </h2>
-    <form class="edit-recipe-form">
-        <div>
-            <input name="recipe-title" type="text" value="{{recipe.title}}"/>
+    <form class="form login-form">
+        <div class="form-group">
+            <input class="form-input" name="recipe-title" type="text" value="{{recipe.title}}"/>
         </div>
-        <button type="submit">Save Recipe</button>
-        <button type="button" class="delete-recipe-btn"> Delete Recipe</button>
+        <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Recipe</button>
+        <button type="button" class="btn btn-primary"> Delete Recipe</button>
+        </div>
     </form>
-</article>
+    </div>
+</div>
 
-<script src="./js/edit-recipe.js"></script>
-<script src="./js/delete-recipe.js"></script>
-<script src="./js/recipe.js"></script>
+<script src="/js/edit-recipe.js"></script>
+<script src="/js/delete-recipe.js"></script>
+<script src="/js/recipe.js"></script>

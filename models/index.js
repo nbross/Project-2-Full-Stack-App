@@ -32,4 +32,8 @@ Recipe.belongsTo(Menu, {
   onDelete: 'CASCADE'
 });
 
+User.hasMany(Recipe, {
+  foreignKey: 'user_id'
+});
+
 module.exports = { User, Menu, Recipe };
