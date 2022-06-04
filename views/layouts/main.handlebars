@@ -9,10 +9,9 @@
 </head>
 
 <body>
-  <div class="wrapper">
   <header>
     <h1>
-      <a href="/">Welcome to Made to Make</a>
+      Welcome to Made to Make
     </h1>  
   </header>
   <nav>
@@ -25,13 +24,13 @@
   </nav>
   <main>
     <aside>
-      <h2>Enjoy the delicious recpices!!</h2>
+      <h2>Enjoy the delicious recipes!!</h2>
     </aside>
-    <div class="recipes">
+    <div class="menu-list">
+      {{> menu-info}}
       {{{ body }}}
     </div>
   </main>
-  </div>
   <!-- If the user is logged in, load the JS script for when they logout -->
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             'id',
             'recipe',
             'filename',
-            'decription',
+            'description',
             'created_at'
         ],
         include: [
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Menu,
-                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'uesr_id'],
+                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -69,8 +69,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-   
-    if (req.session) {
         Recipe.create({
             recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
@@ -81,14 +79,12 @@ router.post('/', withAuth, (req, res) => {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }
-});
+    });
 
 router.put('/:id', withAuth, (req, res) => {
-    if(req.session) {
         Recipe.update(
             {
-               receipe_text: req.body.recipe_text
+               receipe: req.body.recipe
             }, 
             {
                 where: {
@@ -107,8 +103,7 @@ router.put('/:id', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-    }
-});
+    });
 
 router.delete('/:id', withAuth, (req, res) => {
     Recipe.destroy({

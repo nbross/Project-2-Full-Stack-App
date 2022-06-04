@@ -25,8 +25,8 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Recipe,
-                attributes: ['id', 'recipe', 'filename', 'description']
-            }
+                attributes: ['id', 'recipe', 'filename', 'description', 'created_at']
+                }
         ]
     })
     .then(dbUserData => {
@@ -49,13 +49,17 @@ router.post('/', async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-        });
+        }) 
+        .then(dbUserData => {
 
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+           req.session.loggedIn = true;
 
-            res.status(200).json(dbUserData);
+            res.json(dbUserData);
         });
+    })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -88,6 +92,8 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.uesrname = dbUserData.username;
             req.session.loggedIn = true;
 
             res

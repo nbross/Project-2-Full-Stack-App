@@ -14,7 +14,8 @@ Recipe.findAll({
         'menu_id', 
         'user_id', 
         'filename', 
-        'description'
+        'description',
+        'created_at'
     ],
     include: [
         {
@@ -38,7 +39,7 @@ Recipe.findAll({
 })
 .then(dbRecipeData => {
     const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-    res.render('/dashboard', { recipes, loggedIn: true });
+    res.render('dashboard', { recipes, loggedIn: true });
 })
 .catch(err => {
     console.log(err);
@@ -54,7 +55,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
         'menu_id', 
         'user_id', 
         'filename', 
-        'description'
+        'description',
+        'created_at'
     ],
     include: [
         {
