@@ -2,7 +2,8 @@ const { Menu } = require('../models');
 
 const menudata = [
     {
-        menu: 'menu',
+        id: 1,
+        menu: "Fall Menu",
         starting_date: 01/01/2022,
         ending_date: 01/01/2024,
         user_id: 1

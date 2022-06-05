@@ -1,46 +1,6 @@
 const router = require('express').Router();
 const { User, Menu, Recipe } = require('../../models');
 
-router.get('/', (req, res) => {
-    User.findAll({
-        attributes: { exclude: ['password'] }
-    })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
-router.get('/:id', (req, res) => {
-    User.findOne({
-        attributes: { exclude: ['password'] },
-        where: {
-            id: req.params.id
-        },
-        include: [
-            {
-                model: Menu,
-                attributes: ['id', 'menu','starting_date','ending_date']
-            },
-            {
-                model: Recipe,
-                attributes: ['id', 'recipe', 'filename', 'description', 'created_at']
-                }
-        ]
-    })
-    .then(dbUserData => {
-        if(!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id' });
-            return;
-        }
-        res.json(dbUserData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
 
 // Create a new user
 router.post('/', async (req, res) => {
