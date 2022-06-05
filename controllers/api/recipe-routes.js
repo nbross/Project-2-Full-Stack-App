@@ -15,11 +15,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Menu,
-                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'user_id'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
+                attributes: ['id', 'menu', 'starting_date', 'ending_date'],
             },
             {
                 model: User,
@@ -43,12 +39,9 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Menu,
-                attributes: ['id', 'menu', 'starting_date', 'ending_date', 'user_id'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+                attributes: ['id', 'menu', 'starting_date', 'ending_date'],
+                },
+            
             {
                 model: User, 
                 attributes: ['username']
