@@ -9,8 +9,16 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Recipe,
-                attributes: ['id', 'recipe', 'filename', 'description'],
-                
+                attributes: ['id', 'recipe', 'filename', 'description', 'user_id'],
+                include: 
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            }, 
+            {
+                model: User,
+                attributes: ['username']
             }            
         ]
     }) 
@@ -38,8 +46,20 @@ router.get('/', (req, res) => {
                             'recipe',
                             'filename',
                             'description',
+                            'user_id',
                         ],
+                        include: [
+                            {
+                                model: User,
+                                attributes: ['username']
+                            },
+                        {
+                            model: User,
+                            attributes: ['username']
+                        } 
+                    ]
                     },
+                    
                 ],
             });
             const menu = dbMenuData.get({ plain: true });
