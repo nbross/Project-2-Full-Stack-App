@@ -44,20 +44,20 @@
     margin-bottom: 0px;
   }
   
-  aside {
+  footer {
     flex: auto;
     flex-wrap: wrap;
     background-color: var(--tertiary);
-    padding: 80px;
+    padding: 25px 20px;    
     text-align: center;
     color: var(--text);
     border-width: 10px;
     border-style: inset;
     border-color: lavender;
-    margin: 0px 78% 0px 0px;
     position: relative;
     float: left;
-    height: 100%;
+    justify-content: center;
+    width: 100%;
   }
   
   nav {
