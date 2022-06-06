@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const multer = require('multer');
 
 
 const app = express();
@@ -19,6 +20,9 @@ const sess = {
         db: sequelize
     })
 };
+
+//static images folder
+app.use('/images', express.static('./images'));
 
 app.use(session(sess));
 const helpers = require('./utils/helper');
