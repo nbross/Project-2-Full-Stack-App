@@ -73,18 +73,18 @@ THEN I am signed out of the site
 ```
 
 ## Technologies Used
-Handlebars
-Js
-Node.js
-Express.js
-SQL
-Multer npm
-bcrypt
-dotenv
-sequelize
-connect-session-sequelize
-express-handlebars
-express-session
+* Handlebars
+* Js
+* Node.js
+* Express.js
+* SQL
+* Multer npm
+* bcrypt
+* dotenv
+* sequelize
+* connect-session-sequelize
+* express-handlebars
+* express-session
 
 ## Screenshot
 
