@@ -17,6 +17,7 @@
     </h1>  
   </header>
   <nav>
+    <a href="/">Home</a>
     {{#if loggedIn}}
     <a href="/dashboard">DashBoard</a>
     <button id="logout" class="btn-no-style">Logout</button>
@@ -75,9 +76,9 @@
       {{{body}}}
     </div>
   </main>
-  <aside>
+  <footer>
       <h2>Enjoy the delicious recipes!!</h2>
-  </aside>
+  </footer>
   <!-- If the user is logged in, load the JS script for when they logout -->
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
