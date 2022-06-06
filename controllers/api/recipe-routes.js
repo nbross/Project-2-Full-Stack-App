@@ -4,6 +4,7 @@ const { Recipe, Menu, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
+const upload = require('../../utils/upload');
 
 //router.post('/', )
 
@@ -70,7 +71,7 @@ router.post('/', withAuth, (req, res) => {
             recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
             menu_id: req.body.menu_id,
-            filename: req.body.filename
+            filename: upload(req.body.filename)
         })
             .then(dbRecipeData => res.json(dbRecipeData))
             .catch(err => {
