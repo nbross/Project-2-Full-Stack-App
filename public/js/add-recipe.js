@@ -30,7 +30,7 @@ async function newRecipeHandler(event) {
 
     const recipe_title = document.querySelector('input[name="recipe-title"]').value;
     const recipe_text = document.querySelector('input[name="recipe-text"]').value;
-    const filename = document.querySelector(`input[name="filename"]`).value;
+    const filename = upload(document.querySelector(`input[name="filename"]`).value);
 
 
     const response = await fetch(`/api/recipes`, {
