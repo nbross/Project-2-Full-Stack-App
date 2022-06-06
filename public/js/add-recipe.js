@@ -31,14 +31,15 @@ async function newRecipeHandler(event) {
     const recipe_title = document.querySelector('input[name="recipe-title"]').value;
     const recipe_text = document.querySelector('input[name="recipe-text"]').value;
     const filename = upload(document.querySelector(`input[name="filename"]`).value);
-
+    const menu_id = 1;
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
         body: JSON.stringify({
             recipe_title,
             recipe_text,
-            filename
+            menu_id,
+            filename,   
         }),
         headers: {
             'Content-Type': 'application/json'
