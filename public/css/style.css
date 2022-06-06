@@ -170,6 +170,13 @@
       left: 0;
       min-height: 300px;
   }
+
+  .bg-dark {
+    border-width: 8px;
+    border-style: double;
+    border-color: var(--tertiary);
+    border-spacing: 5px;
+  }
   
   .gallery-name {
     text-transform: uppercase;
