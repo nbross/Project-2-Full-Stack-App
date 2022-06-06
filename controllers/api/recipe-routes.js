@@ -2,6 +2,10 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Recipe, Menu, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const multer = require('multer');
+const path = require('path');
+
+//router.post('/', )
 
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -65,7 +69,8 @@ router.post('/', withAuth, (req, res) => {
         Recipe.create({
             recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
-            menu_id: req.body.menu_id
+            menu_id: req.body.menu_id,
+            filename: req.body.filename
         })
             .then(dbRecipeData => res.json(dbRecipeData))
             .catch(err => {
