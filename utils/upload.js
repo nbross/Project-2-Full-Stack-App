@@ -1,8 +1,21 @@
 const multer = require('multer');
 const path = require('path');
 
+/*
 const storage = multer.diskStorage({
-    distination: (req, file, cb) => {
+    destination: '../../images/',
+    filename: function(req, file, cb){
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+const upload = multer({
+    storage: storage
+}).single('filename');
+*/
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
         cb(null, '../../images')
     },
     filename: (req, file, cb) => {
@@ -10,6 +23,7 @@ const storage = multer.diskStorage({
 
     }
 });
+
 
 const upload = multer({
     storage: storage,
@@ -24,6 +38,7 @@ const upload = multer({
         }
         cb('Please use a jpeg, jpg, png, or gif filetype')
     }
-}).single('filename')
+})
 
-module.exports = upload
+console.log(upload)
+module.exports = upload;

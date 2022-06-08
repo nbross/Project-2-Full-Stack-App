@@ -11,7 +11,8 @@ async function recipeFormHandler(event) {
             method: 'POST',
             body: JSON.stringify({
                 recipe_id,
-                recipe_text
+                recipe_text,
+                filename
             }),
             headers: {
                 'Content-Type': 'application/json'

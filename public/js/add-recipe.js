@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 async function newRecipeHandler(event) {
     event.preventDefault();
 
     const recipe_title = document.querySelector('input[name="recipe-title"]').value;
     const recipe_text = document.querySelector('input[name="recipe-text"]').value;
     const filename = document.querySelector(`input[name="filename"]`).value;
-<<<<<<< HEAD
-
-=======
     const menu_id = 1;
     const user_id = 1;
->>>>>>> main
 
     const response = await fetch(`/api/recipes`, {
         method: 'POST',
@@ -22,7 +14,7 @@ async function newRecipeHandler(event) {
             recipe_text,
             menu_id,
             filename, 
-            user_id,  
+            user_id
         }),
         headers: {
             'Content-Type': 'application/json'
