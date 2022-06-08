@@ -4,7 +4,7 @@ const { Recipe, Menu, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
-const upload = require('../../utils/upload')
+const upload = require('../../utils/upload');
 const express = require('express');
 
 //router.post('/', )
@@ -73,7 +73,7 @@ router.post('/', withAuth, upload.single('filename'), (req, res) => {
             recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
             menu_id: req.body.menu_id,
-            filename: req.file
+            filename: req.file.buffer
         })
             .then(dbRecipeData => res.json(dbRecipeData))
             .catch(err => {
@@ -85,7 +85,7 @@ router.post('/', withAuth, upload.single('filename'), (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
         Recipe.update(
             {
-               receipe: req.body.recipe
+               recipe: req.body.recipe
             }, 
             {
                 where: {
