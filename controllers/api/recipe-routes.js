@@ -4,10 +4,20 @@ const { Recipe, Menu, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const path = require('path');
-const upload = require('../../utils/upload');
+//const upload = require('../../utils/upload');
 const express = require('express');
 
 //router.post('/', )
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/images')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+})
+var upload = multer({ storage: storage })
 
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -68,14 +78,18 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, upload.single('filename'), (req, res) => {
+        console.log(req.file);
+       console.log(req.file.path);
+        console.log(req);
+    
         Recipe.create({
             recipe: req.body.recipe_title,
             recipe_text: req.body.recipe_text,
             user_id: req.session.user_id,
             menu_id: req.body.menu_id,
-            filename: req.file.buffer
+            filename: req.file.path
         })
-            .then(dbRecipeData => res.json(dbRecipeData))
+            .then(dbRecipeData => res.render('menu', {dbRecipeData}))
             .catch(err => {
                 console.log(err);
                 res.status(400).json(err);

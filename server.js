@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const multer = require('multer');
+//const upload = require('./utils/upload');
 
 
 const app = express();
@@ -20,6 +21,9 @@ const sess = {
         db: sequelize
     }),
 };
+
+
+
 
 //static images folder
 app.use('./public/images', express.static('./public/images'));

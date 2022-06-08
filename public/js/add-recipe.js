@@ -29,4 +29,4 @@ async function newRecipeHandler(event) {
     }
 }
 
-document.querySelector('.new-recipe-form').addEventListener('submit', newRecipeHandler);
+//document.querySelector('.new-recipe-form').addEventListener('submit', newRecipeHandler);
