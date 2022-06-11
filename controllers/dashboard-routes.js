@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Menu, User, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
+const path = require('path');
 
 router.get('/', withAuth, (req, res) => {
 Recipe.findAll({
@@ -46,7 +47,7 @@ Recipe.findAll({
 router.get('/edit/:id', withAuth, (req, res) => {
     Recipe.findByPk(req.params.id, {
         attributes: [
-            'id', 
+        'id', 
         'recipe',
         'menu_id', 
         'user_id', 

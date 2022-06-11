@@ -1,9 +1,8 @@
 async function newRecipeHandler(event) {
     event.preventDefault();
 
-    const recipe_title = document.querySelector('input[name="recipe-title"]').value;
-    const recipe_text = document.querySelector('input[name="recipe-text"]').value;
-    const filename = document.querySelector(`input[name="filename"]`).value;
+    const recipe_title = document.querySelector(`input[name="recipe-title"]`).value;
+    const recipe_text = document.querySelector(`input[name="recipe-text"]`).value;
     const menu_id = 1;
     const user_id = 1;
 
@@ -13,7 +12,6 @@ async function newRecipeHandler(event) {
             recipe_title,
             recipe_text,
             menu_id,
-            filename, 
             user_id
         }),
         headers: {

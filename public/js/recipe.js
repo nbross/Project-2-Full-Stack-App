@@ -7,7 +7,7 @@ async function recipeFormHandler(event) {
         window.location.toString().split('/').length - 1
     ];
     if (recipe_text) {
-        const response = await fetch('/api/recipes', {
+        const response = await fetch('/api/recipe', {
             method: 'POST',
             body: JSON.stringify({
                 recipe_id,
@@ -26,4 +26,4 @@ async function recipeFormHandler(event) {
     }
 }
 
-document.querySelector('.recipe-form').addEventListener('submit', recipeFormHandler);
+//document.querySelector('.recipe-form').addEventListener('submit', recipeFormHandler);

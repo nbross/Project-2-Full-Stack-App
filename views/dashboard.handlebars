@@ -1,12 +1,12 @@
 <section>
     <h2> Create a New Recipe</h2>
 
-    <form method="POST" action="/recipe/:id" class="new-recipe-form" enctype="multipart/form-data">
+    <form method="POST" action='/api/recipes' class="new-recipe-form" enctype="multipart/form-data">
         <div>
-            <label for="recipe-title"> Recipe Title</label>
-            <input type="text" id="recipe-title" name="recipe-title"/>
-            <label for="recipe-text" class="Descrip"> Recipe Description</label>
-            <input type="text" id="recipe-text" name="recipe-text"/>
+            <label for="recipe_title"> Recipe Title</label>
+            <input type="text" id="recipe_title" name="recipe_title"/>
+            <label for="recipe_text" class="Descrip"> Recipe Description</label>
+            <input type="text" id="recipe_text" name="recipe_text"/>
             <label for="filename">Image</label>
             <input type="file" id="filename" name="filename" required>
         </div>

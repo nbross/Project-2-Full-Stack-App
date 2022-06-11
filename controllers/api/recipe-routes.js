@@ -89,16 +89,16 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/recipe/:id', withAuth, upload.single('filename'), (req, res) => {
+router.post('/', withAuth, upload.single('filename'), (req, res) => {
         console.log(req.file);
        console.log(req.file.path);
         console.log(req);
     
         Recipe.create({
             recipe: req.body.recipe_title,
-            recipe_text: req.body.recipe_text,
+            description: req.body.recipe_text,
             user_id: req.session.user_id,
-            menu_id: req.body.menu_id,
+            menu_id: 1,
             filename: req.file.path
         })
             .then(dbRecipeData => res.render('menu', {dbRecipeData}))
