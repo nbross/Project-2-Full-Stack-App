@@ -14,10 +14,22 @@ var storage = multer.diskStorage({
       cb(null, './public/images')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null, Date.now() + path.extname(file.originalname))
     }
-})
-var upload = multer({ storage: storage })
+});
+var upload = multer
+({ storage: storage,
+   limit: {fileSize: '1000000'},
+   fileFilter: (req, file, cb) => {
+       const fileTypes = /jpeg|jpg|png|gif/
+       const mimeType = fileTypes.test(file.mimetype)
+       const extname = fileTypes.test(path.extname(file.originalname))
+    if(mimeType && extname) {
+        return cb(null, true)
+    }
+    cb('please use a jpeg, jpg, png, or gif filetype')
+    }
+ });
 
 router.get('/', (req, res) => {
     Recipe.findAll({

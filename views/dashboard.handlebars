@@ -1,7 +1,7 @@
 <section>
     <h2> Create a New Recipe</h2>
 
-    <form method="POST" action="/api/recipes" class="new-recipe-form" enctype="multipart/form-data">
+    <form method="POST" action="/" class="new-recipe-form" enctype="multipart/form-data">
         <div>
             <label for="recipe-title"> Recipe Title</label>
             <input type="text" id="recipe-title" name="recipe-title"/>
@@ -14,8 +14,8 @@
     </form>
 </section>
 
-{{#if recipes.legnth}}
-<section>
+{{#if recipes.length}}
+<section class="container">
     <h2>Your Recipes</h2>
     <ol>
         {{#each recipes as |recipe|}}
