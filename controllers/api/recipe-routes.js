@@ -89,7 +89,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, upload.single('filename'), (req, res) => {
+router.post('/recipe/:id', withAuth, upload.single('filename'), (req, res) => {
         console.log(req.file);
        console.log(req.file.path);
         console.log(req);
