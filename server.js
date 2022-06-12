@@ -23,10 +23,8 @@ const sess = {
 };
 
 
-
-
 //static images folder
-app.use('./public/images', express.static('./public/images'));
+
 
 app.use(session(sess));
 const helpers = require('./utils/helper');

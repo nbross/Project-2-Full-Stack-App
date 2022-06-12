@@ -11,7 +11,7 @@ const express = require('express');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/images')
+      cb(null, './images')
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + path.extname(file.originalname))
@@ -90,9 +90,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, upload.single('filename'), (req, res) => {
-        console.log(req.file);
-       console.log(req.file.path);
-        console.log(req);
     
         Recipe.create({
             recipe: req.body.recipe_title,
