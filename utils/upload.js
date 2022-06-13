@@ -14,8 +14,6 @@ const upload = multer({
 }).single('filename');
 */
 
-
-
 const storage = multer.memoryStorage({
     destination: (req, file, cb) => {
         cb(null, '../../images')
